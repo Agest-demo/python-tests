@@ -14,7 +14,6 @@ pipeline {
     }
 
     stages {
-        
         // stage('Checkout') {
         //     steps {
         //         // Checkout the repository
@@ -22,11 +21,6 @@ pipeline {
         //     }
         // }
         
-        stage('Clean Workspace') {
-            steps {
-                deleteDir()  // This deletes the entire workspace before each build
-            }
-        }
         stage('Install Dependencies') {
             steps {
                 sh '''
