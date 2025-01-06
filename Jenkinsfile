@@ -3,6 +3,7 @@ pipeline {
     
     parameters {
         string(name: 'MY_PARAM', defaultValue: 'Hello xinh cuộc sống đẹp xinh', description: 'Enter a value for MY_PARAM')
+        string(name: 'BRANCH', defaultValue: 'master', description: 'Enter a value for MY_PARAM')
       
     }
 
@@ -14,12 +15,6 @@ pipeline {
     }
 
     stages {
-        // stage('Checkout') {
-        //     steps {
-        //         // Checkout the repository
-        //         git credentialsId: credentials('github'), url: 'https://github.com/pvo-cicd/python-tests.git', branch: 'master'
-        //     }
-        // }
         
         stage('Install Dependencies') {
             steps {
