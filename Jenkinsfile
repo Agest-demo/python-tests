@@ -40,7 +40,7 @@ pipeline {
                     sh '''
                     source venv/bin/activate
                     cd my-python-tests
-                    pytest --alluredir=${ALLURE_RESULTS_DIR} *.py
+                    pytest --alluredir=${ALLURE_RESULTS_DIR}
                     '''
                 }
             }
@@ -60,10 +60,12 @@ pipeline {
     }
      post {
         always {
-            allure([
-                includeProperties: false,
-                results: [[path: '${ALLURE_RESULTS_DIR}']]
-            ])
+            script {
+                allure([
+                    reportBuildPolicy: 'ALWAYS',
+                    results: [[path: "${ALLURE_RESULTS_DIR}"]]
+                ])
+            }
         }
 //         cleanup {
 //             cleanWs() // Clean the workspace after the build
