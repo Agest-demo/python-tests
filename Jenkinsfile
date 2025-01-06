@@ -14,6 +14,11 @@ pipeline {
         ALLURE_REPORT_DIR = 'allure-report'
     }
 
+    options {
+            // Keep the last 5 builds and delete older builds
+            buildDiscarder(logRotator(numToKeepStr: '5'))
+        }
+
     stages {
         
         stage('Install Dependencies') {
