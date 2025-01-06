@@ -10,7 +10,7 @@ pipeline {
     environment {
         MY_ENV_VAR = "${params.BRANCH}"
         VENV = "/Users/test/Working/Jenkins/workspace/python-jobs/python-pipeline/venv"
-        ALLURE_RESULTS_DIR = 'allure-results-001'
+        ALLURE_RESULTS_DIR = 'allure-results'
         ALLURE_REPORT_DIR = 'allure-report'
     }
 
