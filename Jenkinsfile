@@ -65,8 +65,8 @@ pipeline {
                 results: [[path: '${ALLURE_RESULTS_DIR}']]
             ])
         }
-        cleanup {
-            cleanWs() // Clean the workspace after the build
-        }
+//         cleanup {
+//             cleanWs() // Clean the workspace after the build
+//         }
     }
 }
