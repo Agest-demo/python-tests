@@ -27,7 +27,7 @@ pipeline {
                 python3 -m venv venv
                 source venv/bin/activate
                 pip install --upgrade pip
-                pip install -r requirements.text
+                pip install -r requirements.txt
                 '''
             }
         }
@@ -84,7 +84,7 @@ pipeline {
     //         ])
     //     }
     // }
-    // post {
+     post {
         // always {
         //     // sh 'chmod -R 777 allure-results'
         //     allure([
@@ -92,10 +92,10 @@ pipeline {
         //         results: [[path: '${ALLURE_RESULTS_DIR}']]
         //     ])
         // }
-     //   cleanup {
-       //     cleanWs() // Clean the workspace after the build
-       // }
-    //}
+        cleanup {
+            cleanWs() // Clean the workspace after the build
+        }
+    }
 }
         // stage('Checkout') {
         //     steps {
