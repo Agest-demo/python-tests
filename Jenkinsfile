@@ -44,52 +44,26 @@ pipeline {
                 }
             }
         }
-
-//         stage('Archive Allure Report') {
-//             steps {
-//                 archiveArtifacts artifacts: "${ALLURE_REPORT_DIR}/**", fingerprint: true
-//             }
-//         }
-        
         stage('Generate Allure Report') {
             steps {
-                script {
-                    allure([
-                        includeProperties: false, 
-                        results: [[path: '${ALLURE_RESULTS_DIR}']]  // Path to allure results folder
-                    ])
-                }
+                sh '''
+                allure generate ${ALLURE_RESULTS_DIR} -o ${ALLURE_REPORT_DIR} --clean
+                '''
             }
         }
-        // stage('Generate Allure Report') {
-        //     steps {
-        //         sh '''
-        //         allure generate ${ALLURE_RESULTS_DIR} -o ${ALLURE_REPORT_DIR} --clean
-        //         '''
-        //     }
-        // }
-        // stage('Archive Allure Report') {
-        //     steps {
-        //         archiveArtifacts artifacts: "${ALLURE_REPORT_DIR}/**", fingerprint: true
-        //     }
-        // }
+        stage('Archive Allure Report') {
+            steps {
+                archiveArtifacts artifacts: "${ALLURE_REPORT_DIR}/**", fingerprint: true
+            }
+        }
     }
-    // post {
-    //     always {
-    //         // Publish Allure report
-    //         allure([
-    //             includeProperties: false, 
-    //             results: [[path: 'allure-results']]
-    //         ])
-    //     }
-    // }
      post {
-        // always {
-        //     allure([
-        //         includeProperties: false,
-        //         results: [[path: '${ALLURE_RESULTS_DIR}']]
-        //     ])
-        // }
+        always {
+            allure([
+                includeProperties: false,
+                results: [[path: '${ALLURE_RESULTS_DIR}']]
+            ])
+        }
         cleanup {
             cleanWs() // Clean the workspace after the build
         }
