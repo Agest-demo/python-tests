@@ -91,10 +91,6 @@ pipeline {
         //     ])
         // }
         cleanup {
-            steps {
-                // Clean up the virtual environment (optional)
-                sh 'rm -rf MY_ENV_VAR'
-            }
             cleanWs() // Clean the workspace after the build
         }
     }
