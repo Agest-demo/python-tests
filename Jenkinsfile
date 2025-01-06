@@ -45,11 +45,11 @@ pipeline {
             }
         }
 
-        stage('Archive Allure Report') {
-            steps {
-                archiveArtifacts artifacts: "${ALLURE_REPORT_DIR}/**", fingerprint: true
-            }
-        }
+//         stage('Archive Allure Report') {
+//             steps {
+//                 archiveArtifacts artifacts: "${ALLURE_REPORT_DIR}/**", fingerprint: true
+//             }
+//         }
         
         stage('Generate Allure Report') {
             steps {
