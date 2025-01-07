@@ -1,0 +1,6 @@
+{
+  "remoteEnv": {
+    "MY_SECRET_API_KEY": "${localEnv.MY_API_KEY}",
+    "MY_SECRET_PASSWORD": "${localEnv.MY_SECRET_PASSWORD}"
+  }
+}
