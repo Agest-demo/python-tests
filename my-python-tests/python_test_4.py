@@ -16,7 +16,7 @@ class Hello():
                 envs = (yaml.safe_load(stream))
                 print(envs['env']['TOKEN'])
                 print(envs['env']['TOKEN_2'])
-                print(os.getenv('MY_API_KEY'))
+                print(os.getenv('MY_SECRET_API_KEY'))
                 print(os.getenv('MY_SECRET_PASSWORD'))
             except yaml.YAMLError as exc:
                 print(exc)
