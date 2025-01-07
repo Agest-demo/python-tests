@@ -1,6 +1,6 @@
 {
   "containerEnv": {
-    "MY_SECRET_API_KEY": "${{ secrets.MY_API_KEY }}",
-    "MY_SECRET_PASSWORD": "${{ secrets.MY_SECRET_PASSWORD }}"
+    "MY_SECRET_API_KEY": "${localEnv.MY_API_KEY}",
+    "MY_SECRET_PASSWORD": "${localEnv.MY_SECRET_PASSWORD}"
   }
 }
