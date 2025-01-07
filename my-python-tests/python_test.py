@@ -11,5 +11,6 @@ class Hello():
     def andBye(self):
         print(os.getenv('MY_PARAM'))
 
-# Run class 
-Hello()
+# Run class
+def test_add_parameterized():
+    hello = Hello()
