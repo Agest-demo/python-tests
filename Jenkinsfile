@@ -66,8 +66,8 @@ pipeline {
                 ])
             }
         }
-//         cleanup {
-//             cleanWs() // Clean the workspace after the build
-//         }
+        cleanup {
+            cleanWs() // Clean the workspace after the build
+        }
     }
 }
