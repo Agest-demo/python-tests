@@ -14,7 +14,8 @@ class Hello():
         with open("env.yml") as stream:
             try:
                 envs = (yaml.safe_load(stream))
-                print(envs['env']['TOKEN']
+                print(envs['env']['TOKEN'])
+                print(envs['env']['TOKEN_2'])
             except yaml.YAMLError as exc:
                 print(exc)
 
