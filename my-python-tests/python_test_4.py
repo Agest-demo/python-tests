@@ -13,7 +13,8 @@ class Hello():
         print(os.getenv('MY_PARAM'))
         with open("env.yml") as stream:
             try:
-                print(yaml.safe_load(stream))
+                envs = (yaml.safe_load(stream))
+                print(envs['env']['TOKEN']
             except yaml.YAMLError as exc:
                 print(exc)
 
